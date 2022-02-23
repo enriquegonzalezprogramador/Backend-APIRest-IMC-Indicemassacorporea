@@ -32,9 +32,9 @@ public class PersonaService {
 	
 	//Eliminar una persona de la lista
 	
-	public void delete (Persona persona) {
+	public void delete (Optional<Persona> persona) {
 		
-			personaRepository.delete(persona);
+			personaRepository.deleteById(persona.get().getId());
 	}
 	
 	//Buscar una persona por ID

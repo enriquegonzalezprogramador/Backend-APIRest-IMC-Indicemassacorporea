@@ -59,9 +59,11 @@ public class PersonaREST {
 	
 	@CrossOrigin(origins = "https://indicedemassacorporea.herokuapp.com")
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarPersona (@RequestBody Persona persona) {
+	private ResponseEntity<Void> eliminarPersona (@PathVariable ("id") Long id) {
 		
-		personaService.delete(persona);
+		Optional<Persona> p = personaService.findById(id);
+		 
+		personaService.delete(p);
 		
 		return ResponseEntity.ok().build();
 		
