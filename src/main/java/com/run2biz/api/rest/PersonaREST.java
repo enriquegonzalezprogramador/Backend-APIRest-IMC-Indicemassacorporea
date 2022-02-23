@@ -58,7 +58,7 @@ public class PersonaREST {
 	// ROUTE PARA ELIMINAR PERSONA EN ESPECIFICO
 	
 	@CrossOrigin(origins = "https://indicedemassacorporea.herokuapp.com")
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	private ResponseEntity<Void> eliminarPersona (@PathVariable ("id") Long id) {
 		
 		Optional<Persona> p = personaService.findById(id);
